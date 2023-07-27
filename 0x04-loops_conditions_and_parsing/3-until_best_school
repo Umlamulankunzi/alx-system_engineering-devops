@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script prints the phrase "Best School" 10 times
+
+counter=0
+until [ $counter -eq 10 ]; do
+    echo "Best School"
+    counter=$((counter+1))
+done
