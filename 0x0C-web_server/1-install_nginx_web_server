@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Update server software and install nginx webserver
+apt-get update
+apt-get install -y nginx
+
+# Configure nginx
+cat > /etc/nginx/sites-available/default <<EOF
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html;
+
+    server_name _;
+
+    location / {
+        echo "Hello World!";
+    }
+}
+EOF
+
+# Restart nginx
+service nginx restart
