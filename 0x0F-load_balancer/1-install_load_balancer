@@ -8,7 +8,7 @@
 # [STUDENT_ID]-web-01 and [STUDENT_ID]-web-02
 
 sudo apt-get update
-sudo apt-get -y install haproxy
+sudo apt -y install haproxy
 
 # Configure haproxy
 cat << EOF |sudo tee -a /etc/haproxy/haproxy.cfg
