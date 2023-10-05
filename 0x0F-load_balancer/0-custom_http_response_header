@@ -4,7 +4,7 @@
 # The value of the custom HTTP header must be the hostname of the server Nginx is running on
 
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt install nginx -y
 
 # configure firewell to allow request through port 80
 sudo ufw allow 'Nginx HTTP'
