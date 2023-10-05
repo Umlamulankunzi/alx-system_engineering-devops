@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 # Usage: ./0-world_wide_web <domain> <subdomain>
 # Display information about subdomains.
 
