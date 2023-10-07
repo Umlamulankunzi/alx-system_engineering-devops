@@ -32,19 +32,19 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
+
 listen load_balancer
-	bind :80
 	mode http
 	option httpclose
 	option forwardfor
 	balance roundrobin
+	redirect scheme https if !{ ssl_fc }
 	server 239052-web-01 54.89.26.161:80 check
 	server 239052-web-02 54.236.43.219:80 check
 
 frontend http_front
 	bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.princetronix.tech/www.princetronix.tech.pem
 	http-request add-header X-Forwarded-Proto http
-	http-request redirect scheme https if !{ ssl_fc }
 	use_backend http_back
 
 backend http_back
