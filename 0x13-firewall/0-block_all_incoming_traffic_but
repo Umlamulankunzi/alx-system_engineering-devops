@@ -1,0 +1,13 @@
+#/usr/bin/env bash
+# Firewall - ufw - Config
+# Block all incoming taffic save for tcp ports:
+#     22: for ssh, 80: for http & 443: for https
+
+sudo apt install ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable
+sudo ufw status verbose
